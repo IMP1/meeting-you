@@ -25,4 +25,7 @@ tile_data = IntArray( 2752554, 2, 2949177, 2, 3080212, 2, 3211317, 2, 4325399, 0
 
 [node name="player" parent="tilemap" instance=ExtResource( 2 )]
 
+transform/pos = Vector2( 230.623, 290.917 )
+player_speed = 96
+
 
