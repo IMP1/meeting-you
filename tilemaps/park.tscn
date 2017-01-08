@@ -24,7 +24,7 @@ extents = Vector2( 12, 5 )
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 4, 4 )
+extents = Vector2( 4.5, 4 )
 
 [sub_resource type="RectangleShape2D" id=5]
 
@@ -33,7 +33,12 @@ extents = Vector2( 4, 5 )
 
 [node name="tilemap" type="Node2D"]
 
-[node name="bush" type="StaticBody2D" parent="."]
+[node name="bush" type="Sprite" parent="."]
+
+editor/display_folded = true
+texture = ExtResource( 1 )
+
+[node name="body" type="StaticBody2D" parent="bush"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -46,23 +51,23 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="sprite" type="Sprite" parent="bush"]
-
-texture = ExtResource( 1 )
-
-[node name="colider" type="CollisionShape2D" parent="bush"]
+[node name="colider" type="CollisionShape2D" parent="bush/body"]
 
 transform/pos = Vector2( 0, 2 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="tree" type="StaticBody2D" parent="."]
+[node name="tree" type="Sprite" parent="."]
 
 transform/pos = Vector2( 32, 0 )
+texture = ExtResource( 2 )
+
+[node name="body" type="StaticBody2D" parent="tree"]
+
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.5, 17 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 17 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -71,20 +76,21 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="sprite" type="Sprite" parent="tree"]
+[node name="collider" type="CollisionShape2D" parent="tree/body"]
 
-texture = ExtResource( 2 )
-
-[node name="collider" type="CollisionShape2D" parent="tree"]
-
-transform/pos = Vector2( -0.5, 17 )
+transform/pos = Vector2( 0, 17 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
-[node name="bench" type="StaticBody2D" parent="."]
+[node name="bench" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 64, 0 )
+texture = ExtResource( 3 )
+
+[node name="body" type="StaticBody2D" parent="bench"]
+
 input/pickable = false
 shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 1.5 )
@@ -96,20 +102,20 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="sprite" type="Sprite" parent="bench"]
-
-texture = ExtResource( 3 )
-
-[node name="collider" type="CollisionShape2D" parent="bench"]
+[node name="collider" type="CollisionShape2D" parent="bench/body"]
 
 transform/pos = Vector2( 0, 1.5 )
 shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
-[node name="bin" type="StaticBody2D" parent="."]
+[node name="bin" type="Sprite" parent="."]
 
 transform/pos = Vector2( 96, 0 )
+texture = ExtResource( 4 )
+
+[node name="body" type="StaticBody2D" parent="bin"]
+
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 2 )
@@ -121,20 +127,21 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="sprite" type="Sprite" parent="bin"]
-
-texture = ExtResource( 4 )
-
-[node name="collider" type="CollisionShape2D" parent="bin"]
+[node name="collider" type="CollisionShape2D" parent="bin/body"]
 
 transform/pos = Vector2( 0, 2 )
 shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 
-[node name="light" type="StaticBody2D" parent="."]
+[node name="light" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 128, 0 )
+texture = ExtResource( 5 )
+
+[node name="body" type="StaticBody2D" parent="light"]
+
 input/pickable = false
 shapes/0/shape = SubResource( 5 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 10 )
@@ -146,11 +153,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="sprite" type="Sprite" parent="light"]
-
-texture = ExtResource( 5 )
-
-[node name="collider" type="CollisionShape2D" parent="light"]
+[node name="collider" type="CollisionShape2D" parent="light/body"]
 
 transform/pos = Vector2( 0, 10 )
 shape = SubResource( 5 )
