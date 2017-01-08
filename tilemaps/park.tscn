@@ -1,0 +1,160 @@
+[gd_scene load_steps=11 format=1]
+
+[ext_resource path="res://graphics/park_bush.png" type="Texture" id=1]
+[ext_resource path="res://graphics/park_tree.png" type="Texture" id=2]
+[ext_resource path="res://graphics/park_bench.png" type="Texture" id=3]
+[ext_resource path="res://graphics/park_bin.png" type="Texture" id=4]
+[ext_resource path="res://graphics/park_light.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7, 6 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 12, 5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4, 5 )
+
+[node name="tilemap" type="Node2D"]
+
+[node name="bush" type="StaticBody2D" parent="."]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 2 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="sprite" type="Sprite" parent="bush"]
+
+texture = ExtResource( 1 )
+
+[node name="colider" type="CollisionShape2D" parent="bush"]
+
+transform/pos = Vector2( 0, 2 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tree" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 32, 0 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.5, 17 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="sprite" type="Sprite" parent="tree"]
+
+texture = ExtResource( 2 )
+
+[node name="collider" type="CollisionShape2D" parent="tree"]
+
+transform/pos = Vector2( -0.5, 17 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="bench" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 64, 0 )
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 1.5 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="sprite" type="Sprite" parent="bench"]
+
+texture = ExtResource( 3 )
+
+[node name="collider" type="CollisionShape2D" parent="bench"]
+
+transform/pos = Vector2( 0, 1.5 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="bin" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 96, 0 )
+input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 2 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="sprite" type="Sprite" parent="bin"]
+
+texture = ExtResource( 4 )
+
+[node name="collider" type="CollisionShape2D" parent="bin"]
+
+transform/pos = Vector2( 0, 2 )
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
+
+[node name="light" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 128, 0 )
+input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 10 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="sprite" type="Sprite" parent="light"]
+
+texture = ExtResource( 5 )
+
+[node name="collider" type="CollisionShape2D" parent="light"]
+
+transform/pos = Vector2( 0, 10 )
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+
+
